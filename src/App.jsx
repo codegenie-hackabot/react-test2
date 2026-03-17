@@ -26,7 +26,7 @@ function App() {
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
           {/* Funny joke added */}
-          <p className="joke blue-text">Why does Bohdan prefer AI slop? Because he is the goat!</p>
+          <p className="joke blue-text">Why does Bohdan prefer AI slop? Because he is the fucking goat YIPEEEEEE!</p>
         </div>
         <button
           className="counter"

@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Minigame from './Minigame'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -115,6 +116,8 @@ function App() {
       </section>
 
       <div className="ticks"></div>
+      {/* Minigame added at the bottom */}
+      <Minigame />
       <section id="spacer"></section>
     </>
   )

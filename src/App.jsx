@@ -6,6 +6,7 @@ import './App.css'
 import Minigame from './Minigame'
 import SlotMachine from './SlotMachine'
 import Roulette from './Roulette'
+import DinosaurGame from './DinosaurGame'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -127,6 +128,8 @@ function App() {
       <SlotMachine />
       {/* Roulette added */}
       <Roulette />
+      {/* Dinosaur game added */}
+      <DinosaurGame />
       <section id="spacer"></section>
     </>
   )

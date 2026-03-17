@@ -1,0 +1,10 @@
+/* Dino Game styles */
+.dino-game {
+  text-align: center;
+  margin: 20px;
+}
+
+.dino-game canvas {
+  background: #fafafa;
+  border: 1px solid #ccc;
+}

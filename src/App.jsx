@@ -16,12 +16,12 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started!</h1>
+          <h1 className="blue-text">Get started!</h1>
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
           {/* Funny joke added */}
-          <p className="joke">Why do programmers prefer dark mode? Because light attracts bugs!</p>
+          <p className="joke blue-text">Why do programmers prefer dark mode? Because light attracts bugs!</p>
         </div>
         <button
           className="counter"

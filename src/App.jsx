@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Minigame from './Minigame'
 import SlotMachine from './SlotMachine'
+import Roulette from './Roulette'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -124,6 +125,8 @@ function App() {
       <Minigame />
       {/* SlotMachine added */}
       <SlotMachine />
+      {/* Roulette added */}
+      <Roulette />
       <section id="spacer"></section>
     </>
   )

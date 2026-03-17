@@ -20,6 +20,8 @@ function App() {
           <p>
             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
           </p>
+          {/* Funny joke added */}
+          <p className="joke">Why do programmers prefer dark mode? Because light attracts bugs!</p>
         </div>
         <button
           className="counter"

@@ -10,6 +10,8 @@ function App() {
 
   return (
     <>
+      {/* Decorative stars on sides of top section */}
+      <div className="star-left">★</div>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -31,6 +33,7 @@ function App() {
           Count is {count}
         </button>
       </section>
+      <div className="star-right">★</div>
 
       <div className="ticks"></div>
 

@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Minigame from './Minigame'
+import SlotMachine from './SlotMachine'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -121,6 +122,8 @@ function App() {
       <div className="ticks"></div>
       {/* Minigame added at the bottom */}
       <Minigame />
+      {/* SlotMachine added */}
+      <SlotMachine />
       <section id="spacer"></section>
     </>
   )

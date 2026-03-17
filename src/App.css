@@ -1,3 +1,4 @@
+/* Existing styles (preserved) */
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -181,4 +182,9 @@
     right: 0;
     border-right-color: var(--border);
   }
+}
+
+/* New blue text class */
+.blue-text {
+  color: #1e90ff; /* DodgerBlue */
 }

@@ -1,0 +1,59 @@
+name: Initialize Vite React App with Singlefile Plugin
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  init-react:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Check if package.json exists
+        id: check_package
+        run: |
+          if [ -f package.json ]; then
+            echo "package_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "package_exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Setup Node.js
+        if: steps.check_package.outputs.package_exists == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Create Vite React app with singlefile plugin
+        if: steps.check_package.outputs.package_exists == 'false'
+        run: |
+          # Create a new Vite app with the React template in a temporary folder
+          npm create vite@latest temp-vite-app -- --template react
+          # Copy all generated files (including hidden ones) to the repository root
+          cp -r temp-vite-app/. .
+          # Remove the temporary folder
+          rm -rf temp-vite-app
+          # Install dependencies
+          npm install
+          # Install the singlefile plugin as a dev dependency
+          npm install -D vite-plugin-singlefile
+          # Overwrite vite.config.js to include the plugin
+          cat > vite.config.js << 'EOF'
+          import { defineConfig } from 'vite'
+          import react from '@vitejs/plugin-react'
+          import { viteSingleFile } from "vite-plugin-singlefile"
+          // https://vitejs.dev/config/
+          export default defineConfig({
+            plugins: [react(), viteSingleFile()],
+          })
+          EOF
+      - name: Commit and push changes
+        if: steps.check_package.outputs.package_exists == 'false'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Initialize Vite React app with singlefile plugin" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

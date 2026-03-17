@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,8 +27,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload build folder as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: react-build
-          path: dist/
+      - name: Commit and push built files (dist/) to main
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f dist/
+          git diff --cached --quiet || git commit -m "Update build [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
